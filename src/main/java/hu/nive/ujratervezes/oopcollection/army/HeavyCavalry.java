@@ -1,20 +1,20 @@
 package hu.nive.ujratervezes.oopcollection.army;
 
-public class HeavyCavalry extends MilitaryUnit {
+class HeavyCavalry extends MilitaryUnit {
 
     private boolean isFirstAttack = true;
 
-    public HeavyCavalry() {
+    HeavyCavalry() {
         super(150, 20, true, false);
     }
 
     @Override
-    public int doDamage() {
+    int doDamage() {
         if (isFirstAttack) {
             isFirstAttack = false;
-            return getHitPoints() * 3;
+            return getRealHitPoints() * 3;
         } else {
-            return getHitPoints();
+            return getRealHitPoints();
         }
     }
 }
