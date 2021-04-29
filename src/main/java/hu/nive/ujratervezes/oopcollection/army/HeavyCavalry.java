@@ -12,9 +12,9 @@ class HeavyCavalry extends MilitaryUnit {
     int doDamage() {
         if (isFirstAttack) {
             isFirstAttack = false;
-            return getRealHitPoints() * 3;
+            return getDamagePoints() * 3;
         } else {
-            return getRealHitPoints();
+            return getDamagePoints();
         }
     }
 }

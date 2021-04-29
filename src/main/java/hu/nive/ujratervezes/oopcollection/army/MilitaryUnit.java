@@ -2,41 +2,41 @@ package hu.nive.ujratervezes.oopcollection.army;
 
 abstract class MilitaryUnit {
 
-    private int healthPoints;
     private int hitPoints;
+    private int damagePoints;
     private boolean hasArmor;
     private boolean hasShield;
 
-    MilitaryUnit(int healthPoints, int damagePoints, boolean hasArmor, boolean hasShield) {
-        this.healthPoints = healthPoints;
-        this.hitPoints = damagePoints;
+    MilitaryUnit(int hitPoints, int damagePoints, boolean hasArmor, boolean hasShield) {
+        this.hitPoints = hitPoints;
+        this.damagePoints = damagePoints;
         this.hasArmor = hasArmor;
         this.hasShield = hasShield;
     }
 
     int doDamage() {
-        return hitPoints;
+        return damagePoints;
     }
 
     void sufferDamage(int damage) {
         if (hasShield) {
             hasShield = false;
         } else if (hasArmor) {
-            healthPoints -= damage / 2;
+            hitPoints -= damage / 2;
         } else {
-            healthPoints -= damage;
+            hitPoints -= damage;
         }
     }
 
-    int getHitPoints() {
-        return healthPoints;
+    int getDamagePoints() {
+        return damagePoints;
     }
 
-    int getRealHitPoints() {
+    int getHitPoints() {
         return hitPoints;
     }
 
     boolean isDeadOrIncapableOfFighting() {
-        return healthPoints < 25;
+        return hitPoints < 25;
     }
 }
